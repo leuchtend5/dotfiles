@@ -1,5 +1,13 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
+-- Set HTML file as .html by default, not .htmlangular
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = "*.html",
+  callback = function()
+    vim.bo.filetype = "html"
+  end,
+})
+
 -- Save folds when leaving a buffer and restore when entering a buffer
 vim.api.nvim_create_autocmd("BufWinLeave", {
 	pattern = "*",
@@ -22,8 +30,8 @@ opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
-opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
+opt.tabstop = 4 -- 2 spaces for tabs (prettier default)
+opt.shiftwidth = 4 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 

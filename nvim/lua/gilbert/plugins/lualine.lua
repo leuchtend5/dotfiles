@@ -119,6 +119,8 @@ return {
 				lualine_c = {
 					{
 						"filename",
+						path = 1,
+
 						-- color = function()
 						-- 	local mode = vim.fn.mode() -- get the current mode
 						-- 	local mode_color_map = {
@@ -134,15 +136,15 @@ return {
 						-- 	return { fg = mode_color_map[mode] or colors.blue, bg = colors.grey }
 						-- end,
 						color = { fg = "#7dc4e4" },
-						-- fmt = function(str)
-						-- 	local parts = vim.split(str, "/", { plain = true })
-						-- 	local len = #parts
-						-- 	-- Return last 3 parts: 2 parents + filename
-						-- 	if len > 2 then
-						-- 		return table.concat(parts, "/", len - 2, len)
-						-- 	end
-						-- 	return str -- Return full path if it’s already short
-						-- end,
+						fmt = function(str)
+							local parts = vim.split(str, "/", { plain = true })
+							local len = #parts
+							-- Return last 3 parts: 2 parents + filename
+							if len > 1 then
+								return parts[len - 1] .. "/" .. parts[len]
+							end
+							return str -- Return full path if it’s already short
+						end,
 					},
 				},
 				lualine_x = {

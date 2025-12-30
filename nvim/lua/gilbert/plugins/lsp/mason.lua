@@ -1,7 +1,7 @@
 return {
-	"williamboman/mason.nvim",
+ "mason-org/mason.nvim",
 	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
@@ -25,6 +25,7 @@ return {
 		})
 
 		mason_lspconfig.setup({
+            automatic_installation = true,
 			-- list of servers for mason to install
 			ensure_installed = {
 				"ts_ls",

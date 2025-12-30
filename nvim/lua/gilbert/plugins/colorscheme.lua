@@ -1,6 +1,7 @@
 return {
 	{
 		"catppuccin/nvim",
+		commit = "1bf070129c0b6f77cc23f6a2212dcdc868308c52",
 		name = "catppuccin",
 		priority = 1000,
 
@@ -39,8 +40,8 @@ return {
 				},
 				color_overrides = {},
 				-- custom_highlights = {
-    --       WinSeparator = { fg = "pink" }
-    --     },
+				--       WinSeparator = { fg = "pink" }
+				--     },
 				default_integrations = true,
 				integrations = {
 					cmp = true,
