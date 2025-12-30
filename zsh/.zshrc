@@ -114,10 +114,11 @@ source $ZSH/oh-my-zsh.sh
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
-# NVM Configuration
-export NVM_DIR=~/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# CURL CERTIFICATES
+# export CURL_CA_BUNDLE=$(brew --prefix)/etc/ca-certificates/cert.pem
+# export SSL_CERT_FILE=$(brew --prefix)/etc/ca-certificates/cert.pem
+export NODE_EXTRA_CA_CERTS=/etc/ssl/cert.pem
+
 
 # PHP Configuration
 # export PATH="/Applications/XAMPP/bin:$PATH"
@@ -139,14 +140,19 @@ export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
 export CRYPTOGRAPHY_SUPPRESS_LINK_FLAGS="1"
 
-# export LANG=id_ID.UTF-8
-# export LC_ALL=id_ID.UTF-8
-# export LC_TIME=id_ID.UTF-8
-
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_TIME=en_US.UTF-8
 export PATH=$PATH:$HOME/go/bin
 
+
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
+
+# NVM Configuration
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
